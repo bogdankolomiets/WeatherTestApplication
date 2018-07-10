@@ -1,0 +1,11 @@
+*.iml
+.gradle
+/local.properties
+/.idea/encodings.xml
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+/linkedin-sdk/build/
+/presentation/presentation-release.apk
