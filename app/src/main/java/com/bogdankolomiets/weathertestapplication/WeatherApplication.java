@@ -2,6 +2,7 @@ package com.bogdankolomiets.weathertestapplication;
 
 import android.app.Application;
 
+import com.bogdankolomiets.weathertestapplication.di.ApiModule;
 import com.bogdankolomiets.weathertestapplication.di.AppComponent;
 import com.bogdankolomiets.weathertestapplication.di.DaggerAppComponent;
 
@@ -17,6 +18,7 @@ public class WeatherApplication extends Application {
   private void resolveDependencies() {
     mAppComponent = DaggerAppComponent.builder()
         .application(this)
+        .apiModule(new ApiModule(""))
         .build();
     mAppComponent.inject(this);
   }

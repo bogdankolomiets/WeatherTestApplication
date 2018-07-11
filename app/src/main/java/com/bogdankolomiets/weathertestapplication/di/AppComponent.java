@@ -24,6 +24,8 @@ public interface AppComponent {
     @BindsInstance
     Builder application(WeatherApplication app);
 
+    Builder apiModule(ApiModule apiModule);
+
     AppComponent build();
   }
 }
