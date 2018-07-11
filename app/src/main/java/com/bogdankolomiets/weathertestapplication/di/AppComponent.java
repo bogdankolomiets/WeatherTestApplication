@@ -12,7 +12,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(
     modules = {
         AndroidSupportInjectionModule.class,
-        RoomModule.class
+        RoomModule.class,
+        ApiModule.class
 
     })
 public interface AppComponent {
