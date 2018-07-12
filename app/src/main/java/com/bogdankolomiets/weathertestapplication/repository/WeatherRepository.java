@@ -7,6 +7,7 @@ import com.bogdankolomiets.weathertestapplication.repository.model.CityWeather;
 import com.bogdankolomiets.weathertestapplication.repository.model.Weather;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
 
 public interface WeatherRepository {
 
@@ -14,5 +15,5 @@ public interface WeatherRepository {
   Observable<Resource<Weather>> getWeatherByCityId(String id);
 
   @NonNull
-  Observable<Resource<CityWeather>> getSavedCitiesWithWeather();
+  Single<Resource<CityWeather>> getSavedCitiesWithWeather();
 }

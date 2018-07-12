@@ -11,6 +11,7 @@ import com.bogdankolomiets.weathertestapplication.repository.model.Weather;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
 
 public class WeatherRepositoryImpl implements WeatherRepository {
   private final @NonNull ApiServiceFacade mApiService;
@@ -30,7 +31,7 @@ public class WeatherRepositoryImpl implements WeatherRepository {
 
   @NonNull
   @Override
-  public Observable<Resource<CityWeather>> getSavedCitiesWithWeather() {
+  public Single<Resource<CityWeather>> getSavedCitiesWithWeather() {
     return null;
   }
 }
