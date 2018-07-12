@@ -1,0 +1,8 @@
+ext {
+    layoutSrcDirs = [
+            'src/main/res/common',
+            'src/main/res/full_weather',
+            'src/main/res/manage_cities',
+            'src/main/res/weather_list'
+    ]
+}
