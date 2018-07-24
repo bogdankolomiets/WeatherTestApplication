@@ -3,6 +3,7 @@ package com.bogdankolomiets.weathertestapplication.presentation.weather_list;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,6 +51,7 @@ public class WeatherListActivity extends BaseActivity {
 
   private void setupViews() {
     mRvWeather.setAdapter(mWeatherAdapter);
+    mRvWeather.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
   }
 
   @Override
