@@ -15,7 +15,7 @@ import dagger.Provides;
 import dagger.multibindings.IntoMap;
 
 @Module
-public abstract class ManageCitiesActivityModule {
+public interface ManageCitiesActivityModule {
 
   @Provides
   @ActivityScope

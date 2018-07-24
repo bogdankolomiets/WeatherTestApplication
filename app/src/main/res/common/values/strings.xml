@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherTestApplication</string>
+    <string name="menu_item_manage_cities">Manage cities</string>
 </resources>
