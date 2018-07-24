@@ -15,7 +15,7 @@ public interface ApiServiceFacade {
 
   @NonNull
   Single<CityWeatherDto> getWeatherByCityId(
-      @Query("id") String id,
+      @Query("id") Integer id,
       @Query("appid") String appId,
       @Query("units") String metrics,
       @Query("lang") String lang

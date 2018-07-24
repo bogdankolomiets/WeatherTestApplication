@@ -47,6 +47,7 @@ public class ManageCitiesActivity extends BaseActivity {
       switch (result.getStatus()) {
         case SUCCESS:
           mAdapter.show(result.getData());
+          break;
       }
     });
     mViewModel.loadCities();

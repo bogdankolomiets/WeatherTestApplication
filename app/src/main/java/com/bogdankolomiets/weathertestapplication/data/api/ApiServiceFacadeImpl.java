@@ -23,7 +23,7 @@ public class ApiServiceFacadeImpl implements ApiServiceFacade {
 
   @NonNull
   @Override
-  public Single<CityWeatherDto> getWeatherByCityId(String id, String appId, String metrics, String lang) {
+  public Single<CityWeatherDto> getWeatherByCityId(Integer id, String appId, String metrics, String lang) {
     return mApiService.getWeatherByCityId(
         id,
         appId,

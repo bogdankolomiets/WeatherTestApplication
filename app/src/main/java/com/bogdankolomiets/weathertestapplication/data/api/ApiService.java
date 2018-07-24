@@ -10,7 +10,7 @@ public interface ApiService {
 
   @GET("weather/")
   Single<CityWeatherDto> getWeatherByCityId(
-      @Query("id") String id,
+      @Query("id") Integer id,
       @Query("appid") String appId,
       @Query("units") String metrics,
       @Query("lang") String lang
