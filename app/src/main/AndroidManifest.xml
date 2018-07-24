@@ -15,14 +15,16 @@
         tools:replace="android:allowBackup">
 
         <activity android:name=".presentation.weather_list.WeatherListActivity">
+
+        </activity>
+
+        <activity android:name=".presentation.full_weather.FullWeatherActivity" />
+
+        <activity android:name=".presentation.manage_cities.ManageCitiesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".presentation.full_weather.FullWeatherActivity" />
-
-        <activity android:name=".presentation.manage_cities.ManageCitiesActivity" />
     </application>
 </manifest>

@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "cities")
 public class CityEntity {
   @PrimaryKey
-  public int id;
+  public Integer id;
 
   public String name;
 

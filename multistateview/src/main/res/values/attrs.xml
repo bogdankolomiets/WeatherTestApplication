@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="MultiStateView">
+    <attr format="reference" name="msv_progressView"/>
+    <attr format="reference" name="msv_blockingProgressView"/>
+    <attr format="reference" name="msv_emptyView"/>
+    <attr format="reference" name="msv_errorView"/>
+    <attr format="reference" name="msv_noConnectionView"/>
+    <attr format="reference" name="msv_actionButtonResId"/>
+    <attr format="boolean" name="msv_useDefaultLoadingView"/>
+    <attr format="enum" name="msv_layoutHideVisibilityMode">
+      <enum name="invisible" value="0x00000004"/>
+      <enum name="gone" value="0x00000008"/>
+    </attr>
+    <attr format="enum" name="msv_animateViewChanges">
+      <enum name="disabled" value="-1"/>
+      <enum name="fade" value="0"/>
+      <enum name="fade_scale" value="1"/>
+    </attr>
+  </declare-styleable>
+</resources>

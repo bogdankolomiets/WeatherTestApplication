@@ -3,6 +3,7 @@ package com.bogdankolomiets.weathertestapplication.di;
 import android.content.Context;
 
 import com.bogdankolomiets.weathertestapplication.WeatherApplication;
+import com.google.firebase.database.FirebaseDatabase;
 
 import javax.inject.Singleton;
 
@@ -10,7 +11,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class AppModule {
+public  class AppModule {
 
   @Provides
   @Singleton

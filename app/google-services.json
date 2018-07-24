@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "406248922835",
+    "firebase_url": "https://openweather-f2f94.firebaseio.com",
+    "project_id": "openweather-f2f94",
+    "storage_bucket": "openweather-f2f94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406248922835:android:44db02441e45cdfd",
+        "android_client_info": {
+          "package_name": "com.bogdankolomiets.weathertestapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406248922835-idmo07dtra7am9jfl3g6p12jbot65it1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7cFkZu2xfQiip9ulEzW5_2r24eic3kmE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

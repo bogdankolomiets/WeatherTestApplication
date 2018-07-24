@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.bogdankolomiets.weathertestapplication.repository.model.UserCity" />
+
+        <import type="com.bogdankolomiets.weathertestapplication.presentation.common.SingleDataBoundAdapterWithClickListener.OnItemClickListener" />
+
+        <variable
+            name="clickListener"
+            type="OnItemClickListener&lt;UserCity&gt;" />
+
+        <variable
+            name="item"
+            type="com.bogdankolomiets.weathertestapplication.repository.model.UserCity" />
+    </data>
+
+    <android.support.v7.widget.AppCompatCheckBox xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:checked="@{item.isSavedCity()}"
+        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+        android:drawablePadding="30dp"
+        android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+        android:onClickListener="@{(v) -> clickListener.onClick(item)}"
+        android:padding="16dp"
+        android:text="@{item.getName()}"
+        android:textSize="16sp"
+        tools:text="Some city" />
+</layout>

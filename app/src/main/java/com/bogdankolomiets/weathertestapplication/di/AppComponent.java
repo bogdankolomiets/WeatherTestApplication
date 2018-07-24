@@ -1,6 +1,7 @@
 package com.bogdankolomiets.weathertestapplication.di;
 
 import com.bogdankolomiets.weathertestapplication.WeatherApplication;
+import com.bogdankolomiets.weathertestapplication.di.modules.ViewModelModule;
 
 import javax.inject.Singleton;
 
@@ -12,9 +13,12 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(
     modules = {
         AndroidSupportInjectionModule.class,
+        AppModule.class,
         RoomModule.class,
-        ApiModule.class
-
+        ApiModule.class,
+        ActivityBindingModule.class,
+        ViewModelModule.class,
+        DataModule.class
     })
 public interface AppComponent {
 

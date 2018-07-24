@@ -2,6 +2,9 @@ package com.bogdankolomiets.weathertestapplication.di;
 
 import com.bogdankolomiets.weathertestapplication.BuildConfig;
 import com.bogdankolomiets.weathertestapplication.data.api.ApiService;
+import com.bogdankolomiets.weathertestapplication.data.api.ApiServiceFacade;
+import com.bogdankolomiets.weathertestapplication.data.api.ApiServiceFacadeImpl;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -91,6 +94,18 @@ public class ApiModule {
   @Singleton
   ApiService provideApiService(Retrofit retrofit) {
     return retrofit.create(ApiService.class);
+  }
+
+  @Provides
+  @Singleton
+  FirebaseDatabase provideFirebaseDatabase() {
+    return FirebaseDatabase.getInstance();
+  }
+
+  @Provides
+  @Singleton
+  ApiServiceFacade provideApiServiceFacade(ApiServiceFacadeImpl apiServiceFacade) {
+    return apiServiceFacade;
   }
 
 }

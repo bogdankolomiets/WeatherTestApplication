@@ -28,7 +28,7 @@ public class WeatherApplication extends Application implements HasActivityInject
   private void resolveDependencies() {
     mAppComponent = DaggerAppComponent.builder()
         .application(this)
-        .apiModule(new ApiModule(""))
+        .apiModule(new ApiModule("https://api.openweathermap.org/data/2.5/"))
         .build();
     mAppComponent.inject(this);
   }

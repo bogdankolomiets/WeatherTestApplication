@@ -3,6 +3,7 @@ package com.bogdankolomiets.weathertestapplication.data.api;
 import android.support.annotation.NonNull;
 
 import com.bogdankolomiets.weathertestapplication.data.api.dto.CityDto;
+import com.bogdankolomiets.weathertestapplication.data.api.dto.CityResponse;
 import com.bogdankolomiets.weathertestapplication.data.api.dto.CityWeatherDto;
 
 import java.util.List;
@@ -22,5 +23,5 @@ public interface ApiServiceFacade {
 
 
   @NonNull
-  Single<List<CityDto>> getCities();
+  Single<CityResponse> getCities(int page, int limit);
 }
