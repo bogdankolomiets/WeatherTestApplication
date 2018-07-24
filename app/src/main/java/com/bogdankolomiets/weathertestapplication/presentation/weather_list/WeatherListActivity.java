@@ -9,9 +9,18 @@ import android.view.MenuItem;
 import com.bogdankolomiets.weathertestapplication.R;
 import com.bogdankolomiets.weathertestapplication.presentation.common.BaseActivity;
 import com.bogdankolomiets.weathertestapplication.presentation.manage_cities.ManageCitiesActivity;
+import com.bogdankolomiets.weathertestapplication.repository.model.UserCity;
+
+import java.util.List;
+
+import javax.inject.Inject;
 
 public class WeatherListActivity extends BaseActivity {
   public static final int REQUEST_CODE_CITIES = 1;
+  public static final String KEY_CHANGED_CITIES = "key_changed_cities";
+
+  @Inject
+  WeatherListViewModel mViewModel;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +42,16 @@ public class WeatherListActivity extends BaseActivity {
         return true;
       default:
         return false;
+    }
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == REQUEST_CODE_CITIES) {
+      if (resultCode == RESULT_OK) {
+        mViewModel.handleChangeCitiesResult(data.getParcelableArrayListExtra(KEY_CHANGED_CITIES));
+      }
     }
   }
 }
