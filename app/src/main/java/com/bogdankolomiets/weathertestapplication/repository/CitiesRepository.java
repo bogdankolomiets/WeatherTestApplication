@@ -18,4 +18,7 @@ public interface CitiesRepository {
   @NonNull
   Completable updateCity(UserCity userCity);
 
+  @NonNull
+  Completable updateCities(List<UserCity> cities);
+
 }

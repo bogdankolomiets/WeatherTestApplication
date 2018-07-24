@@ -62,6 +62,11 @@ public class ManageCitiesViewModelImpl extends ReactiveViewModel implements Mana
   }
 
   @Override
+  public List<UserCity> getChangedCities() {
+    return mChanged;
+  }
+
+  @Override
   public void onCityClicked(UserCity item) {
     addDisposable(Single.just(item)
         .map(city -> {
@@ -69,8 +74,8 @@ public class ManageCitiesViewModelImpl extends ReactiveViewModel implements Mana
           return city;
         })
         .map(city -> {
-          boolean saved = city.isSavedCity();
-          if (saved) {
+          boolean exist = mChanged.indexOf(city) != -1;
+          if (!exist) {
             mChanged.add(city);
           } else {
             mChanged.remove(city);

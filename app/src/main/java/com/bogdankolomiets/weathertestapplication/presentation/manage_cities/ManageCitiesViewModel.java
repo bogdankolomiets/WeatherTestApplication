@@ -12,5 +12,6 @@ public interface ManageCitiesViewModel {
   LiveData<Boolean> menuEnabled();
   LiveData<Resource<List<UserCity>>> cities();
 
+  List<UserCity> getChangedCities();
   void onCityClicked(UserCity item);
 }

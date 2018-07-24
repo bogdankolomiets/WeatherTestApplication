@@ -50,6 +50,31 @@ public class CitiesRepositoryImpl implements CitiesRepository {
     return null;
   }
 
+  @NonNull
+  @Override
+  public Completable updateCities(List<UserCity> cities) {
+    return Completable.create(e -> {
+      try {
+        mCitiesDao.transaction(() -> {
+          for (UserCity userCity : cities) {
+            CityEntity cityEntity = new CityEntity();
+            cityEntity.name = userCity.getName();
+            cityEntity.country = userCity.getCountry();
+            cityEntity.id = userCity.getId();
+            if (userCity.isSavedCity()) {
+              mCitiesDao.saveCity(cityEntity);
+            } else {
+              mCitiesDao.deleteCity(cityEntity);
+            }
+          }
+        });
+        e.onComplete();
+      } catch (Throwable throwable) {
+        e.onError(throwable);
+      }
+    });
+  }
+
   private Single<List<CityDto>> getCitiesFromApi(int page) {
     return mApiService
         .getCities(page, LIMIT)

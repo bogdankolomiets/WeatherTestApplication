@@ -1,5 +1,6 @@
 package com.bogdankolomiets.weathertestapplication.presentation.manage_cities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +11,12 @@ import android.widget.Toast;
 import com.bogdankolomiets.weathertestapplication.R;
 import com.bogdankolomiets.weathertestapplication.presentation.common.BaseActivity;
 import com.bogdankolomiets.weathertestapplication.presentation.common.SingleDataBoundAdapterWithClickListener;
+import com.bogdankolomiets.weathertestapplication.presentation.weather_list.WeatherListActivity;
 import com.bogdankolomiets.weathertestapplication.repository.model.UserCity;
 import com.google.gson.Gson;
 import com.lonecrab.multistateview.MultiStateView;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -65,6 +69,19 @@ public class ManageCitiesActivity extends BaseActivity {
     return super.onPrepareOptionsMenu(menu);
   }
 
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.menu_manage_cities_action_save:
+        Intent intent = new Intent();
+        intent.putParcelableArrayListExtra(WeatherListActivity.KEY_CHANGED_CITIES, new ArrayList<>(mViewModel.getChangedCities()));
+        setResult(RESULT_OK, new Intent(intent));
+        finish();
+        return true;
+      default:
+        return false;
+    }
+  }
 
   public void onClick(UserCity item) {
     ofNullable(mViewModel).ifPresent(vm -> vm.onCityClicked(item));
