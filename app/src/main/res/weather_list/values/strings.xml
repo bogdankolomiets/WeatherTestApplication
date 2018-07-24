@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weather_list.temperature" formatted="false">%s°C</string>
+    <string name="weather_list.temperature_min_max" formatted="false">%s°C/%s°C</string>
+</resources>

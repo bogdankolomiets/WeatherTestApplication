@@ -26,13 +26,17 @@ public class WeatherListViewModelImpl extends ReactiveViewModel implements Weath
   private final @NonNull
   CitiesRepository mCitiesRepository;
 
-  private final MutableLiveData<Resource<List<CityWeather>>> mWeather = new MutableLiveData<>();
+  private final MutableLiveData<Resource<List<CityWeather>>> mWeather = new MutableLiveData<Resource<List<CityWeather>>>() {
+    @Override
+    protected void onActive() {
+      loadWeather();
+    }
+  };
 
   @Inject
   public WeatherListViewModelImpl(@NonNull CitiesRepository citiesRepository, @NonNull WeatherRepository weatherRepository) {
     mCitiesRepository = citiesRepository;
     mWeatherRepository = weatherRepository;
-    loadWeather();
   }
 
   @Override
@@ -50,8 +54,7 @@ public class WeatherListViewModelImpl extends ReactiveViewModel implements Weath
 
   private void loadWeather() {
     addDisposable(mWeatherRepository.getSavedCitiesWithWeather()
-        .delay(1, TimeUnit.MINUTES)
-        .repeat()
+        .repeatWhen(completed -> completed.delay(1, TimeUnit.MINUTES))
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(__ -> mWeather.setValue(Resource.loading(null)))

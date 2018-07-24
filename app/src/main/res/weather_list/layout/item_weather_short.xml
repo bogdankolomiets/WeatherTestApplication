@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <import type="com.bogdankolomiets.weathertestapplication.repository.model.CityWeather" />
 
         <variable
             name="item"
-            type="CityWeather"/>
+            type="CityWeather" />
     </data>
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/item_weather_short_tv_city_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textSize="26sp"
+            android:textColor="@android:color/black"
+            android:text="@{item.city.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/item_weather_short_container_temp"
+            tools:text="Kiev" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/item_weather_short_container_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/item_weather_short_tv_temperature"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:text="@{@string/weather_list_temperature(item.weatherInfo.temperature)}"
+                app:layout_constraintBottom_toTopOf="@+id/item_weather_short_tv_temperature_min_max"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="25"
+                />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/item_weather_short_tv_temperature_min_max"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{@string/weather_list_temperature_min_max(item.weatherInfo.min, item.weatherInfo.max)}"
+                app:layout_constraintTop_toBottomOf="@+id/item_weather_short_tv_temperature"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="19/27" />
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -6,6 +6,7 @@ import com.bogdankolomiets.weathertestapplication.Resource;
 import com.bogdankolomiets.weathertestapplication.data.api.ApiServiceFacade;
 import com.bogdankolomiets.weathertestapplication.data.room.dao.CitiesDao;
 import com.bogdankolomiets.weathertestapplication.data.room.enitity.CityEntity;
+import com.bogdankolomiets.weathertestapplication.repository.mapper.ShortWeatherInfoMapper;
 import com.bogdankolomiets.weathertestapplication.repository.model.City;
 import com.bogdankolomiets.weathertestapplication.repository.model.CityWeather;
 import com.bogdankolomiets.weathertestapplication.repository.model.ShortWeatherInfo;
@@ -45,7 +46,8 @@ public class WeatherRepositoryImpl implements WeatherRepository {
         .flatMapObservable(Observable::fromIterable)
         .map(cityEntity -> new City(cityEntity.id, cityEntity.name, cityEntity.country))
         .flatMapSingle(city -> mApiService.getWeatherByCityId(city.getId(), "d9c4fc71beb9c1607acfb8754daca0e6", "metric", "ru")
-            .map(cityWeatherDto -> new ShortWeatherInfo())
+            .map(dto -> dto.mainWeatherInfo)
+            .map(new ShortWeatherInfoMapper())
             .map(shortWeatherInfo -> new CityWeather(city, shortWeatherInfo))
         )
         .toList();
