@@ -18,7 +18,6 @@ import dagger.multibindings.IntoMap;
 public interface ManageCitiesActivityModule {
 
   @Provides
-  @ActivityScope
   static ManageCitiesViewModel provideManageCitiesViewModel(WeatherViewModelFactory vmFactory,
                                                      ManageCitiesActivity activity) {
     return ViewModelProviders

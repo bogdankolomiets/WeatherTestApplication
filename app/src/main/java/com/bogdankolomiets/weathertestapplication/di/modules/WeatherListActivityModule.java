@@ -13,8 +13,8 @@ import dagger.Provides;
 
 @Module
 public interface WeatherListActivityModule {
+
   @Provides
-  @ActivityScope
   static WeatherListViewModel provideManageCitiesViewModel(WeatherViewModelFactory vmFactory,
                                                            WeatherListActivity activity) {
     return ViewModelProviders

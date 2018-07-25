@@ -26,17 +26,13 @@ public class WeatherListViewModelImpl extends ReactiveViewModel implements Weath
   private final @NonNull
   CitiesRepository mCitiesRepository;
 
-  private final MutableLiveData<Resource<List<CityWeather>>> mWeather = new MutableLiveData<Resource<List<CityWeather>>>() {
-    @Override
-    protected void onActive() {
-      loadWeather();
-    }
-  };
+  private final MutableLiveData<Resource<List<CityWeather>>> mWeather = new MutableLiveData<>();
 
   @Inject
   public WeatherListViewModelImpl(@NonNull CitiesRepository citiesRepository, @NonNull WeatherRepository weatherRepository) {
     mCitiesRepository = citiesRepository;
     mWeatherRepository = weatherRepository;
+    loadWeather();
   }
 
   @Override
